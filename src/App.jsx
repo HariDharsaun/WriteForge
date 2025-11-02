@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Generate from './pages/Generate';
+import Profile from './pages/Profile';
+import PostView from './pages/PostView';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import api from './api';
 import './styles/auth.css';
 import './styles/loading.css';
 
-function App() {
+function AppContent() {
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [route, setRoute] = useState('login');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -23,7 +28,6 @@ function App() {
     const token = localStorage.getItem('token');
     if (!token) {
       setLoading(false);
-      setRoute('login');
       return;
     }
 
@@ -32,7 +36,6 @@ function App() {
       const response = await api.me();
       if (response && response.email) {
         setUser(response);
-        setRoute('dashboard');
         setError(null);
       } else {
         handleAuthError();
@@ -49,87 +52,132 @@ function App() {
     console.error('Auth check failed:', err);
     localStorage.removeItem('token');
     setUser(null);
-    setRoute('login');
     setError('Session expired. Please login again.');
   }
 
   function onLogin(userData) {
     setUser(userData);
-    setRoute('dashboard');
     setError(null);
   }
 
   function logout() {
     localStorage.removeItem('token');
     setUser(null);
-    setRoute('login');
     setError(null);
   }
   
   // Function to clear error and go to login
   function handleBackToLogin() {
     setError(null);
-    setRoute('login');
+    navigate('/login');
   }
 
   return (
-    <div className="container">
-      <div className="header">
-        <h2>✨ AI Content Generator</h2>
-        <div className="flex">
-          {user && (
-            <>
-              <div className="small">
-                Credits: <span className="badge">{user.credits}</span>
-              </div>
-              <button className="button" onClick={logout}>
-                <span role="img" aria-label="logout">🚪</span> Logout
-              </button>
-            </>
-          )}
-        </div>
+      <div className="app">
+        <Header user={user} onLogout={logout} />
+        
+        {loading ? (
+          <div className="loading">
+            <div className="loading-spinner"></div>
+            <p>Loading...</p>
+          </div>
+        ) : (
+          <main className="main-content">
+            <Routes>
+                <Route 
+                path="/login" 
+                element={
+                  user ? (
+                    <Navigate to="/dashboard" replace />
+                  ) : (
+                    <Login 
+                      onLogin={onLogin}
+                      initialError={error}
+                      clearError={() => setError(null)}
+                      switchToRegister={() => navigate('/register')}
+                    />
+                  )
+                } 
+              />
+              <Route 
+                path="/register" 
+                element={
+                  user ? (
+                    <Navigate to="/dashboard" replace />
+                  ) : (
+                    <Register 
+                      onRegister={onLogin}
+                      error={error}
+                      setError={setError}
+                    />
+                  )
+                } 
+              />
+              <Route 
+                path="/dashboard" 
+                element={
+                  user ? (
+                    <Dashboard user={user} setUser={setUser} />
+                  ) : (
+                    <Navigate to="/login" replace />
+                  )
+                } 
+              />
+              <Route 
+                path="/generate" 
+                element={
+                  user ? (
+                    <Generate user={user} setUser={setUser} />
+                  ) : (
+                    <Navigate to="/login" replace />
+                  )
+                } 
+              />
+              <Route 
+                path="/profile" 
+                element={
+                  user ? (
+                    <Profile user={user} setUser={setUser} />
+                  ) : (
+                    <Navigate to="/login" replace />
+                  )
+                } 
+              />
+              <Route 
+                path="/posts/:id" 
+                element={
+                  user ? (
+                    <PostView />
+                  ) : (
+                    <Navigate to="/login" replace />
+                  )
+                } 
+              />
+              <Route 
+                path="/posts/:id/edit" 
+                element={
+                  user ? (
+                    <Generate user={user} setUser={setUser} mode="edit" />
+                  ) : (
+                    <Navigate to="/login" replace />
+                  )
+                } 
+              />
+              <Route path="/" element={<Navigate to={user ? "/dashboard" : "/login"} replace />} />
+            </Routes>
+          </main>
+        )}
+        
+        <Footer />
       </div>
+  );
+}
 
-      {loading ? (
-        <div className="loading">
-          <div className="loading-spinner"></div>
-          <p>Loading...</p>
-        </div>
-      ) : (
-        <>
-          {!user && route === 'login' && (
-            <Login 
-              onLogin={onLogin} 
-              switchToRegister={() => setRoute('register')}
-              initialError={error}
-              clearError={() => setError(null)}
-            />
-          )}
-          {!user && route === 'register' && (
-            <Register 
-              switchToLogin={() => setRoute('login')} 
-              onRegister={onLogin}
-              error={error}
-              setError={setError}
-            />
-          )}
-          {user && route === 'dashboard' && (
-            <Dashboard 
-              user={user} 
-              setUser={setUser} 
-              goGenerate={() => setRoute('generate')}
-            />
-          )}
-          {user && route === 'generate' && (
-            <Generate 
-              user={user} 
-              setUser={setUser} 
-              goBack={() => setRoute('dashboard')}
-            />
-          )}
-        </>
-      )}
-    </div>
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 

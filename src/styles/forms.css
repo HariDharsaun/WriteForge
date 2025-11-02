@@ -1,0 +1,89 @@
+.form-container {
+  max-width: var(--container-sm);
+  margin: var(--space-xxl) auto;
+  padding: var(--space-xl);
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.form-title {
+  font-family: var(--font-secondary);
+  font-size: 2rem;
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-sm);
+}
+
+.form-subtitle {
+  color: var(--color-charcoal-light);
+  font-size: 1.1rem;
+}
+
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--space-md);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-md);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-orange);
+}
+
+.form-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-button {
+  width: 100%;
+  padding: var(--space-md);
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.form-button:hover {
+  background-color: var(--color-orange-light);
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: var(--space-lg);
+  color: var(--color-charcoal-light);
+}
+
+.form-link {
+  color: var(--color-orange);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.form-link:hover {
+  text-decoration: underline;
+}

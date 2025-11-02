@@ -27,6 +27,30 @@ router.put('/:id', auth, async (req, res) => {
   res.json(post);
 });
 
+// create post
+router.post('/', auth, async (req, res) => {
+  try {
+    const { title, body, category } = req.body;
+    const wordCount = body ? body.trim().split(/\s+/).length : 0;
+    
+    const post = new Post({
+      userId: req.user._id,
+      title,
+      body,
+      category,
+      wordCount,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    });
+    
+    await post.save();
+    res.status(201).json(post);
+  } catch (err) {
+    console.error('Create post error:', err);
+    res.status(500).json({ error: 'Failed to create post' });
+  }
+});
+
 // delete
 router.delete('/:id', auth, async (req, res) => {
   await Post.deleteOne({ _id: req.params.id, userId: req.user._id });

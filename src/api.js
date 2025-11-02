@@ -1,6 +1,5 @@
-const API = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+const API = 'http://localhost:4000';
 
-// Add refresh token functionality
 let isRefreshing = false;
 let failedQueue = [];
 
@@ -51,6 +50,12 @@ async function request(path, opts = {}) {
 
     // Handle error responses
     if (!res.ok) {
+      console.error('API Error:', {
+        status: res.status,
+        path,
+        data
+      });
+
       // Special handling for 401 Unauthorized
       if (res.status === 401) {
         if (path === '/api/auth/me') {
@@ -124,5 +129,6 @@ export default {
   getPosts: () => request('/api/posts'),
   deletePost: (id) => request('/api/posts/' + id, { method: 'DELETE' }),
   getPost: (id) => request('/api/posts/' + id),
-  updatePost: (id, data) => request('/api/posts/' + id, { method: 'PUT', body: data })
+  updatePost: (id, data) => request('/api/posts/' + id, { method: 'PUT', body: data }),
+  savePost: (data) => request('/api/posts', { method: 'POST', body: data })
 };
