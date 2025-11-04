@@ -119,7 +119,8 @@ export default function Profile({ user, setUser }) {
         ) : (
           <div className="posts-grid">
               {posts.map((post, index) => (
-                <div key={post._id} className="post-card pointer" onClick={()=>{navigate(`/posts/${post.id}`)}} style={{ animationDelay: `${index * 0.1}s` }}>
+                
+                <div key={post._id} className="post-card pointer" onClick={()=>{navigate(`/posts/${post._id}`)}} style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="post-header">
                     <h3 className="post-title">{post.title}</h3>
                     <div className="post-meta">
