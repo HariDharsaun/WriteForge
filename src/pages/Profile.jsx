@@ -133,7 +133,7 @@ export default function Profile({ user, setUser }) {
         ) : (
           <div className="posts-grid">
             {posts.map(post => (
-              <div key={post._id} className="post-card">
+              <div key={post._id} className="post-card max-h-[700px] min-h-[700px]">
                 <div 
                   className="post-content w-[90%] max-h-[200px] overflow-hidden"
                   onClick={() => navigate(`/posts/${post._id}`)}
