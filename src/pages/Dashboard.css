@@ -116,9 +116,13 @@
   overflow: hidden;
   transition: all var(--transition-normal);
   border: 1px solid rgba(28, 28, 30, 0.06);
-  height: fit-content;
-  animation: fadeInUp 0.5s ease-out forwards;
-  opacity: 0;
+
+  /* ✅ SAME HEIGHT FOR ALL POSTS */
+  height: 420px;
+  
+  /* ✅ FLEX FOR PROPER ALIGNMENT */
+  display: flex;
+  flex-direction: column;
 }
 
 .post-card:hover {
@@ -131,44 +135,19 @@
   border-bottom: 1px solid rgba(28, 28, 30, 0.06);
 }
 
-.post-title {
-  font-family: var(--font-headings);
-  font-size: var(--text-xl);
-  font-weight: 600;
-  color: var(--color-charcoal);
-  margin-bottom: var(--space-sm);
-  line-height: 1.4;
-}
-
-.post-meta {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-md);
-}
-
-.category-badge {
-  padding: var(--space-xs) var(--space-sm);
-  background: var(--gradient-sunset);
-  color: var(--color-white);
-  border-radius: var(--radius-full);
-  font-size: var(--text-xs);
-  font-weight: 500;
-}
-
-.word-count {
-  color: var(--color-grey);
-  font-size: var(--text-xs);
-}
-
 .post-preview {
   padding: var(--space-lg);
   color: var(--color-grey);
   font-size: var(--text-sm);
   line-height: 1.6;
+
+  /* ✅ MAKES PREVIEW TAKE AVAILABLE SPACE */
+  flex: 1;
+
+  /* ✅ LIMITS PREVIEW SO ALL CARDS MATCH */
   display: -webkit-box;
-  -webkit-line-clamp: 4;
-  line-clamp: 4;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -176,11 +155,16 @@
 .post-actions {
   padding: var(--space-md) var(--space-lg);
   border-top: 1px solid rgba(28, 28, 30, 0.06);
+  
   display: flex;
   gap: var(--space-sm);
   justify-content: flex-end;
   align-items: center;
+
+  /* ✅ ALWAYS STAYS AT BOTTOM */
+  margin-top: auto;
 }
+
 
 .action-button {
   padding: var(--space-xs) var(--space-sm);
