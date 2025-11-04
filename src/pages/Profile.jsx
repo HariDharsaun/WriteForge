@@ -132,13 +132,9 @@ export default function Profile({ user, setUser }) {
           </div>
         ) : (
           <div className="posts-grid">
-            {posts.map(post => (
-              <div key={post._id} className="post-card">
-                <div 
-                  className="post-content overflow-hidden"
-                  onClick={() => navigate(`/posts/${post._id}`)}
-                  >
-                  <div className="post-header h-fit">
+              {posts.map((post, index) => (
+                <div key={post._id} className="post-card" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="post-header">
                     <h3 className="post-title">{post.title}</h3>
                     <div className="post-meta">
                       <span className="category-badge">{post.category}</span>
@@ -150,7 +146,6 @@ export default function Profile({ user, setUser }) {
                     {post.body}
                   </div>
                 </div>
-              </div>
             ))}
           </div>
         )}
