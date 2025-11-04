@@ -15,9 +15,6 @@ const Footer = () => {
             Craft compelling content with AI-powered assistance. Elevate your writing with intelligent suggestions and seamless content generation.
           </p>
           <div className="footer-social">
-            <a href="https://twitter.com/writeforge" target="_blank" rel="noopener noreferrer" className="social-link">
-              <FiTwitter size={18} />
-            </a>
             <a href="https://github.com/writeforge" target="_blank" rel="noopener noreferrer" className="social-link">
               <FiGithub size={18} />
             </a>

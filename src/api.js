@@ -1,4 +1,4 @@
-const API = 'http://localhost:4000';
+const API = 'https://writeforge-ruf6.onrender.com';
 
 let isRefreshing = false;
 let failedQueue = [];
