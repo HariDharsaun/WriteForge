@@ -135,10 +135,10 @@ export default function Profile({ user, setUser }) {
             {posts.map(post => (
               <div key={post._id} className="post-card">
                 <div 
-                  className="post-content"
+                  className="post-content w-[90%] max-h-[200px] overflow-hidden"
                   onClick={() => navigate(`/posts/${post._id}`)}
                   >
-                  <div className="post-header min-h-[100px]">
+                  <div className="post-header min-h-[240px] max-h-[240px]">
                     <h3 className="post-title">{post.title}</h3>
                     <div className="post-meta">
                       <span className="category-badge">{post.category}</span>
