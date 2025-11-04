@@ -92,13 +92,21 @@
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-grey-light);
   box-shadow: var(--shadow-md);
-  transition: all var(--transition-normal);
   overflow: hidden;
+  transition: all 0.2s ease;
+
+  height: 380px;            /* ✅ same size as dashboard */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .post-content {
   padding: var(--space-lg);
   cursor: pointer;
+  flex-grow: 1;  /* ✅ fills available space */
+  display: flex;
+  flex-direction: column;
 }
 
 .post-card:hover {
@@ -145,22 +153,25 @@
   color: var(--color-grey-dark);
   font-size: var(--text-sm);
   line-height: 1.6;
-  margin-bottom: var(--space-lg);
+
   display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  -webkit-line-clamp: 4;   /* ✅ 4 lines like dashboard */
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  flex-grow: 1;            /* ✅ expands to fill mid space */
 }
 
 .post-actions {
-  display: flex;
-  gap: var(--space-sm);
-  justify-content: flex-end;
-  padding: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
   border-top: 1px solid var(--color-grey-light);
-  background: var(--color-white);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  flex-shrink: 0;   /* ✅ stays visible */
 }
+
 
 .action-button {
   display: flex;
