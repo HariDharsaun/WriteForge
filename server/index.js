@@ -11,7 +11,7 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:4000',
-  'write-forge-ten.vercel.app',
+  'https://write-forge-ten.vercel.app',
   'https://writeforge-ruf6.onrender.com'
 ]
 
