@@ -3,20 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import api from '../api';
 import './Profile.css';
 
-const EditIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-    <path d="M11.5 2.5L13.5 4.5M12.5 3.5L9 7M3 13H5L12 6L10 4L3 11V13Z" 
-          stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-const DeleteIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-    <path d="M3 4h10M7 7v4M9 7v4M4 4l.667 8.006C4.713 12.557 5.205 13 5.76 13h4.48c.555 0 1.047-.443 1.093-.994L12 4" 
-          stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M6 4V3h4v1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
 
 export default function Profile({ user, setUser }) {
   const navigate = useNavigate();
@@ -133,7 +119,7 @@ export default function Profile({ user, setUser }) {
         ) : (
           <div className="posts-grid">
               {posts.map((post, index) => (
-                <div key={post._id} className="post-card" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div key={post._id} className="post-card pointer" onClick={()=>{navigate(`/posts/${post.id}`)}} style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="post-header">
                     <h3 className="post-title">{post.title}</h3>
                     <div className="post-meta">
