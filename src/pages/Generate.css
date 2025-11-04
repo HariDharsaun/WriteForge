@@ -15,6 +15,7 @@
   position: fixed;
   left: var(--space-lg);
   top: calc(72px + var(--space-md));
+  transform: none !important;
   display: flex;
   align-items: center;
   gap: var(--space-sm);

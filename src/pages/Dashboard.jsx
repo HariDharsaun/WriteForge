@@ -157,7 +157,7 @@ export default function Dashboard({ user, setUser, goGenerate }) {
                       <EditIcon />
                       Edit
                     </button>
-                    <button className="action-button edit-button" onClick={() => del(post._id)}>
+                    <button className="action-button delete-button" onClick={() => del(post._id)}>
                       <DeleteIcon />
                       Delete
                     </button>
