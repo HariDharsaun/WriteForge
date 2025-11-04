@@ -115,13 +115,17 @@
   box-shadow: var(--shadow-md);
   border: 1px solid rgba(28, 28, 30, 0.06);
 
-  height: 440px;            /* ✅ Same height for all */
   display: flex;
   flex-direction: column;
   overflow: hidden;
+
+  min-height: 360px;      /* ✅ Enough for preview + buttons */
+  height: auto;           /* ✅ Grows if needed */
+  padding-bottom: var(--space-md);
+
   transition: all var(--transition-normal);
-  padding-bottom: var(--space-lg);
 }
+
 
 .post-card:hover {
   transform: translateY(-4px);
@@ -149,18 +153,17 @@
 
 .post-preview {
   padding: var(--space-lg);
-  flex-grow: 1;
   color: var(--color-grey);
   font-size: var(--text-sm);
   line-height: 1.6;
 
   display: -webkit-box;
-  -webkit-line-clamp: 5;
-  line-clamp: 5;
+  -webkit-line-clamp: 4;   /* ✅ limits text so card stays even */
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
 
+  flex-grow: 1;            /* ✅ fills remaining space */
+}
 
 .post-actions {
   padding: var(--space-md) var(--space-lg);
@@ -169,7 +172,8 @@
   justify-content: flex-end;
   gap: var(--space-sm);
 
-  margin-top: auto;      /* ✅ FIXES disappearing buttons */
+  flex-shrink: 0;          /* ✅ Never shrink */
+  background: var(--color-white);
 }
 
 
