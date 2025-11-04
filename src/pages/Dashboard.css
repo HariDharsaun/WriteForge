@@ -199,7 +199,8 @@
 }
 
 .delete-button {
-  color: #EF4444;
+  background: var(--color-cream);
+  color: var(--color-charcoal);
 }
 
 .edit-button:hover {
@@ -207,7 +208,8 @@
 }
 
 .delete-button:hover {
-  background: #FEE2E2;
+  background: var(--color-amber-light);
+  color: var(--color-charcoal);
 }
 
 .empty-state {
