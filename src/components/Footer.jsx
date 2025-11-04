@@ -15,10 +15,10 @@ const Footer = () => {
             Craft compelling content with AI-powered assistance. Elevate your writing with intelligent suggestions and seamless content generation.
           </p>
           <div className="footer-social">
-            <a href="https://github.com/writeforge" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://github.com/HariDharsaun" target="_blank" rel="noopener noreferrer" className="social-link">
               <FiGithub size={18} />
             </a>
-            <a href="https://linkedin.com/company/writeforge" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://www.linkedin.com/in/haridharsaun18" target="_blank" rel="noopener noreferrer" className="social-link">
               <FiLinkedin size={18} />
             </a>
           </div>
