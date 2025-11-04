@@ -133,12 +133,12 @@ export default function Profile({ user, setUser }) {
         ) : (
           <div className="posts-grid">
             {posts.map(post => (
-              <div key={post._id} className="post-card max-h-[700px] min-h-[60%]">
+              <div key={post._id} className="post-card">
                 <div 
-                  className="post-content w-[90%] max-h-[200px] overflow-hidden"
+                  className="post-content overflow-hidden"
                   onClick={() => navigate(`/posts/${post._id}`)}
                   >
-                  <div className="post-header min-h-[240px] max-h-[240px]">
+                  <div className="post-header h-fit">
                     <h3 className="post-title">{post.title}</h3>
                     <div className="post-meta">
                       <span className="category-badge">{post.category}</span>
