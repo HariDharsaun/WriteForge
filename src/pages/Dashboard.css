@@ -110,19 +110,10 @@
 }
 
 .post-card {
-  background: var(--color-white);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  overflow: hidden;
-  transition: all var(--transition-normal);
-  border: 1px solid rgba(28, 28, 30, 0.06);
-
-  /* ✅ SAME HEIGHT FOR ALL POSTS */
-  height: 420px;
-  
-  /* ✅ FLEX FOR PROPER ALIGNMENT */
+  height: 420px;            /* fixed card height */
   display: flex;
   flex-direction: column;
+  justify-content: space-between;   /* ✅ keeps buttons visible */
 }
 
 .post-card:hover {
@@ -141,28 +132,24 @@
   font-size: var(--text-sm);
   line-height: 1.6;
 
-  /* ✅ MAKES PREVIEW TAKE AVAILABLE SPACE */
-  flex: 1;
-
-  /* ✅ LIMITS PREVIEW SO ALL CARDS MATCH */
+  /* ✅ clamp lines so it fits inside */
   display: -webkit-box;
-  -webkit-line-clamp: 5;
-  line-clamp: 5;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  flex-grow: 1;   /* ✅ fill remaining space only */
 }
 
 .post-actions {
   padding: var(--space-md) var(--space-lg);
   border-top: 1px solid rgba(28, 28, 30, 0.06);
-  
   display: flex;
-  gap: var(--space-sm);
   justify-content: flex-end;
-  align-items: center;
+  gap: var(--space-sm);
 
-  /* ✅ ALWAYS STAYS AT BOTTOM */
-  margin-top: auto;
+  flex-shrink: 0;     /* ✅ stops them from disappearing */
 }
 
 
