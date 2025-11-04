@@ -104,16 +104,23 @@
 
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-xl);
   margin-top: var(--space-xl);
 }
 
 .post-card {
-  height: 420px;            /* fixed card height */
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(28, 28, 30, 0.06);
+
+  height: 440px;            /* ✅ Same height for all */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;   /* ✅ keeps buttons visible */
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  padding-bottom: var(--space-lg);
 }
 
 .post-card:hover {
@@ -126,21 +133,34 @@
   border-bottom: 1px solid rgba(28, 28, 30, 0.06);
 }
 
+.post-title {
+  font-family: var(--font-headings);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-sm);
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
 .post-preview {
   padding: var(--space-lg);
+  flex-grow: 1;
   color: var(--color-grey);
   font-size: var(--text-sm);
   line-height: 1.6;
 
-  /* ✅ clamp lines so it fits inside */
   display: -webkit-box;
-  -webkit-line-clamp: 4;
-  line-clamp: 4;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
-
-  flex-grow: 1;   /* ✅ fill remaining space only */
 }
+
 
 .post-actions {
   padding: var(--space-md) var(--space-lg);
@@ -149,7 +169,7 @@
   justify-content: flex-end;
   gap: var(--space-sm);
 
-  flex-shrink: 0;     /* ✅ stops them from disappearing */
+  margin-top: auto;      /* ✅ FIXES disappearing buttons */
 }
 
 
