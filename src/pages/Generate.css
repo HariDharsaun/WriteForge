@@ -12,10 +12,9 @@
 }
 
 .back-button {
-  position: fixed;
+  position: absolute;
   left: var(--space-lg);
   top: calc(72px + var(--space-md));
-  transform: none !important;
   display: flex;
   align-items: center;
   gap: var(--space-sm);
@@ -26,10 +25,24 @@
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-grey-dark);
+
+  /* Smooth fade effect */
+  opacity: 0;
+  transition: opacity 1s ease;       /* Smooth transition */
+  animation: showBackBtn 0.5s ease 0.5s forwards; /* smooth + delay */
+
   cursor: pointer;
-  transition: all 0.2s ease;
   z-index: 10;
   box-shadow: var(--shadow-sm);
+}
+
+@keyframes showBackBtn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .back-button:hover {

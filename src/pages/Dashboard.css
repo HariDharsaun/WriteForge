@@ -291,6 +291,13 @@
   transform: translateX(100%);
 }
 
+.empty-state .generate-button {
+  display: block;                /* Center */
+  margin: var(--space-lg) auto 0 auto; 
+  padding: var(--space-md) var(--space-2xl);  /* Bigger padding */
+  font-size: var(--text-base);
+}
+
 @media (max-width: 768px) {
   .dashboard {
     padding: var(--space-lg) var(--space-md);

@@ -209,7 +209,7 @@
 
 .empty-state {
   text-align: center;
-  padding: var(--space-3xl) var(--space-xl);
+  padding: 60px 40px;   /* ✅ More space inside the card */
   background: var(--color-white);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
@@ -219,24 +219,18 @@
   font-size: var(--text-xl);
   font-weight: 700;
   color: var(--color-charcoal);
-  margin-bottom: var(--space-sm);
+  margin-bottom: 20px;   /* ✅ Space below title */
 }
 
 .empty-state p {
   color: var(--color-grey);
-  margin-bottom: var(--space-lg);
+  margin-bottom: 32px;   /* ✅ Space between text and button */
 }
 
 .primary-button {
-  background: var(--gradient-sunset);
-  color: var(--color-white);
   padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-lg);
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all var(--transition-normal);
 }
+
 
 .primary-button:hover {
   transform: translateY(-2px);
