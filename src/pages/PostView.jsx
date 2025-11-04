@@ -93,23 +93,6 @@ export default function PostView() {
           <BackIcon />
           Back
         </button>
-
-        <div className="post-actions">
-          <button 
-            className="action-button edit-button"
-            onClick={() => navigate(`/posts/${id}/edit`)}
-          >
-            <EditIcon />
-            Edit
-          </button>
-          <button 
-            className="action-button delete-button"
-            onClick={handleDelete}
-          >
-            <DeleteIcon />
-            Delete
-          </button>
-        </div>
       </div>
 
       <article className="post-content">

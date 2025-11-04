@@ -150,41 +150,6 @@ export default function Profile({ user, setUser }) {
                     {post.body}
                   </div>
                 </div>
-                
-                <div className="post-actions">
-                  <button 
-                    className="action-button edit-button"
-                    onClick={async () => {
-                      try {
-                        navigate(`/posts/${post._id}/edit`);
-                      } catch (err) {
-                        setError('Failed to edit post: ' + (err.message || 'Unknown error'));
-                      }
-                    }}
-                  >
-                    <EditIcon />
-                    Edit
-                  </button>
-                  <button 
-                    className="action-button delete-button"
-                    onClick={async () => {
-                      try {
-                        if (window.confirm('Are you sure you want to delete this post?')) {
-                          setLoading(true);
-                          await api.deletePost(post._id);
-                          await loadPosts();
-                        }
-                      } catch (err) {
-                        setError('Failed to delete post: ' + (err.message || 'Unknown error'));
-                      } finally {
-                        setLoading(false);
-                      }
-                    }}
-                  >
-                    <DeleteIcon />
-                    Delete
-                  </button>
-                </div>
               </div>
             ))}
           </div>
