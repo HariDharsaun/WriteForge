@@ -256,15 +256,6 @@ export default function Generate({ user, setUser }) {
               <DownloadIcon />
               Download as Markdown
             </button>
-
-            <button 
-              className="action-button primary-button save-button"
-              onClick={savePost}
-              disabled={saving}
-            >
-              <SaveIcon />
-              {saving ? 'Saving...' : 'Save Post'}
-            </button>
           </div>
         </div>
       )}

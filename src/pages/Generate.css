@@ -12,7 +12,7 @@
 }
 
 .back-button {
-  position: absolute;
+  position: fixed;
   left: var(--space-lg);
   top: calc(72px + var(--space-md));
   display: flex;
@@ -25,25 +25,11 @@
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-grey-dark);
-  opacity: 0;
-  transition: opacity 0.5s ease;  
-  animation: showBackBtn 0.5s ease 0.5s forwards; 
-
   cursor: pointer;
+  transition: all 0.2s ease;
   z-index: 10;
   box-shadow: var(--shadow-sm);
 }
-
-@keyframes showBackBtn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-
 
 .back-button:hover {
   transform: translateX(-2px);

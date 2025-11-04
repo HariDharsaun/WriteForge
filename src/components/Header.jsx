@@ -27,7 +27,7 @@ export default function Header({ user, onLogout }) {
   return (
     <header className="header animate-in">
       <div className="header-content">
-        <Link to="/" className="logo-section"style={{ textDecoration: "none" }}>
+        <Link to="/" className="logo-section">
           <h1>
             <FlameIcon />
             <span className="logo-text">Write<span className="gradient-text">Forge</span></span>

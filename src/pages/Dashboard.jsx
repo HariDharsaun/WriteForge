@@ -133,7 +133,7 @@ export default function Dashboard({ user, setUser, goGenerate }) {
                 Use AI to generate high-quality content for your blog, marketing, or creative projects
               </p>
               <button className="action-button generate-button" onClick={goToGenerate}>
-                Create Your Post
+                Create Your First Post
               </button>
             </div>
           ) : (
@@ -157,7 +157,7 @@ export default function Dashboard({ user, setUser, goGenerate }) {
                       <EditIcon />
                       Edit
                     </button>
-                    <button className="action-button edit-button" onClick={() => del(post._id)}>
+                    <button className="action-button delete-button" onClick={() => del(post._id)}>
                       <DeleteIcon />
                       Delete
                     </button>

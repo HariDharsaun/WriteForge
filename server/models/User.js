@@ -4,7 +4,7 @@ const UserSchema = new mongoose.Schema({
   name: String,
   email: { type: String, unique: true },
   passwordHash: String,
-  credits: { type: Number, default: 10 }, // starter credits
+  credits: { type: Number, default: 100 }, // starter credits
   role: { type: String, default: 'user' },
   createdAt: { type: Date, default: Date.now }
 });

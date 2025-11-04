@@ -74,13 +74,13 @@
 .post-content {
   background: var(--color-white);
   border-radius: var(--radius-xl);
-  padding: var(--space-md);
+  padding: var(--space-2xl);
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--color-grey-light);
 }
 
 .post-header {
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-2xl);
   padding-bottom: var(--space-xl);
   border-bottom: 1px solid var(--color-grey-light);
 }
